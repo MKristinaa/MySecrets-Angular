@@ -1,0 +1,54 @@
+
+<div class="container">
+  <app-nav_bar></app-nav_bar>
+  <div class="row justify-content-center align-items-center">
+    <div class="col-12 col-md-6">
+      <div class="shadow-sm">
+        <h1 class="text-center">Add new secret</h1>
+        <hr>
+
+        <div class="card-body mt-5 d-flex justify-content-center align-items-center p-3">
+          <form [formGroup]="addForm" (ngSubmit)="onSubmit()" class="w-100">
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label">Application: </label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" placeholder="Application" formControlName="application">
+                <span *ngIf="!application.valid && (application.touched || infoSubmitted)" class="error-block">
+                  Please fill required field
+                </span>
+              </div>
+            </div>
+            <div class="form-group row mt-3">
+              <label class="col-sm-3 col-form-label">URL: </label>
+              <div class="col-sm-9">
+                <input type="url" class="form-control" placeholder="URL" formControlName="url">
+                <span *ngIf="!url.valid && (url.touched || infoSubmitted)" class="error-block">
+                  Please fill required field
+                </span>
+              </div>
+            </div>
+            <div class="form-group row mt-3">
+              <label class="col-sm-3 col-form-label">Username:</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" placeholder="Username" formControlName="username">
+                <span *ngIf="!username.valid && (username.touched || infoSubmitted)" class="error-block">
+                  Please fill required field
+                </span>
+              </div>
+            </div>
+            <div class="form-group row mt-3">
+              <label class="col-sm-3 col-form-label">Password:</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" placeholder="Password" formControlName="password">
+                <span *ngIf="!password.valid && (password.touched || infoSubmitted)" class="error-block">
+                  Please fill required field
+                </span>
+                <button type="submit" class="btn btn-custom btn-position">Add</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

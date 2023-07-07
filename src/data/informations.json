@@ -1,0 +1,20 @@
+[
+  {
+    "Type": "Instagram",
+    "Username": "mkristina",
+    "Password": "12345578",
+    "URL": "https://www.instagram.com"
+  },
+  {
+    "Type": "TikTok",
+    "Username": "mkristina",
+    "Password": "11111111",
+    "URL": "https://www.tiktok.com"
+  },
+  {
+    "Type": "Snapchat",
+    "Username": "mkristina",
+    "Password": "22222222",
+    "URL": "https://www.snapchat.com"
+  }
+]

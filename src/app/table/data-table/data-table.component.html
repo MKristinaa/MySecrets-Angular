@@ -1,0 +1,58 @@
+
+<div style="overflow: hidden;">
+  <app-nav_bar></app-nav_bar>
+  <div class="container mt-5">
+    <div class="container">
+      <div class="row sort">
+        <div class="col-sm-4">
+          <input [(ngModel)]="imeParametar"> &nbsp;
+          <button class="btn btn-dark" (click)="submit()">Search</button>
+
+        </div>
+        <div class="col-sm-5">
+          <button class="btn btn-dark" (click)="sortDirection === 'asc' ? sortDescending() : sortAscending()">
+            Sort
+            <i [ngClass]="sortDirection === 'asc' ? 'fas fa-sort-alpha-down' : 'fas fa-sort-alpha-up'"></i>
+          </button>
+        </div>
+      </div>
+    </div><br>
+    <table class="table shadow-sm">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Application</th>
+          <th scope="col">URL</th>
+          <th scope="col">Username</th>
+          <th scope="col">Password</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let info of allInfo; let i = index">
+          <th scope="row">{{ (this.page - 1) * this.pageSizee + i + 1 }}</th>
+          <td>{{ info.type }}</td>
+          <td><a href="http://{{ info.url }}">{{ info.url }}</a></td>
+          <td>{{ info.username }}</td>
+          <td>
+            {{ (i === selectedRow && showPassword) ? decryptPassword(info.password) : info.password.substr(0, 4) + '********' }}
+            <i
+              class="far fa-eye"
+              style="margin-left: 10px; cursor: pointer;"
+              (click)="togglePassword(i)"
+            ></i>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="row mt-5">
+      <div class="col-7">
+        <button class="btn border-dark" (click)="prevPage()">Prev</button>&nbsp;
+        <button class="btn border-dark" (click)="nextPage()">Next</button>
+      </div>
+      <div class="col-5 d-flex justify-content-end">
+        <button class="btn btn-dark me-3" (click)="exportTXTTajne()">ExportTxt</button>
+        <button class="btn btn-dark" (click)="exportCSVTajne()">ExportCsv</button>
+      </div>
+    </div>
+  </div>
+</div>
