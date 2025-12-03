@@ -18,7 +18,7 @@ export class DataTableComponent implements OnInit {
   sortDirection ='asc';
   len?: Information[] = [];
   page:any=1;
-  pageSizee:any=2;
+  pageSizee:any=5;
 
 
   constructor(private exportTXTService: ExportTXTService,
