@@ -42,7 +42,7 @@ export class DataTableComponent implements OnInit {
   }
 
 
-  //FILTER
+  
   submit() {
     console.log(this.imeParametar);
     this.info.searchTajne(this.imeParametar).subscribe((x) => {
@@ -52,7 +52,6 @@ export class DataTableComponent implements OnInit {
 
 
 
-  //SORT
   sortDescending(){
     let userId = +localStorage.getItem('userId')!;
     this.sortDirection = 'desc';
@@ -69,7 +68,6 @@ export class DataTableComponent implements OnInit {
 
 
 
-  //PAGING
   nextPage(){
     if(this.page < this.len!.length / 2 ){
     this.page++;
@@ -88,7 +86,6 @@ export class DataTableComponent implements OnInit {
   }
 
 
-  //EXPORT
   exportTXTTajne() {
     let userId = +localStorage.getItem('userId')!;
     this.exportTXTService.exportTajne(userId);
@@ -100,7 +97,6 @@ export class DataTableComponent implements OnInit {
 
 
 
-  //PASSWORD DESCRYPTOR
   showPassword: boolean = false;
   selectedRow: number | null = null;
 
@@ -114,7 +110,7 @@ export class DataTableComponent implements OnInit {
   }
 
   decryptPassword(encryptedPassword: string): string {
-    const key = 'kljuc'; // Ključ za dešifrovanje
+    const key = 'kljuc';
     const decryptedPasswordBytes = AES.decrypt(encryptedPassword, key);
     const decryptedPassword = decryptedPasswordBytes.toString(CryptoJS.enc.Utf8);
     return decryptedPassword;

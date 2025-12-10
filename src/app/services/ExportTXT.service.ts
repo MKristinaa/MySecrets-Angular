@@ -17,7 +17,7 @@ exportTajne(userId: number) {
 
       let text = '';
 
-      // Dodaj tajne u tekst
+      
       data.forEach((tajna: {type: string, username: string, password: string, url: string}) => {
         text += `Application: ${tajna.type}\n`;
         text += `URL: ${tajna.url}\n`;
@@ -25,10 +25,10 @@ exportTajne(userId: number) {
         text += `Password: ${tajna.password}\n\n`;
       });
 
-      // Kreiraj Blob sa tekstualnim podacima
+      
       const blob = new Blob([text], {type: 'text/plain;charset=utf-8;'});
 
-      // Prikazi fajl kao preuzimanje
+      
       const url = window.URL.createObjectURL(blob);
       const anchor = document.createElement('a');
       anchor.download = filename;
@@ -37,7 +37,7 @@ exportTajne(userId: number) {
       window.URL.revokeObjectURL(url);
     },
     (error) => {
-      // Obrada greške
+      
       console.error(error);
     }
   );

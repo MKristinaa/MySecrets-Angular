@@ -69,8 +69,8 @@ num:any;
     let userId = Number(localStorage.getItem('userId'));
     console.log(userId);
 
-    // Šifrovanje unetog passworda
-    const key = 'kljuc'; // Ključ za šifrovanje
+    
+    const key = 'kljuc'; 
     const encryptedPassword = AES.encrypt(this.password.value, key).toString();
 
   return this.info = {

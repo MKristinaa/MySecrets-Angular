@@ -56,7 +56,7 @@ export class User_loginComponent implements OnInit {
       localStorage.setItem('token', this.token.token);
       const token = this.token.token;
       const decodedToken: any = jwt_decode(token);
-      const userId = decodedToken.nameid; // or decodedToken.nameid
+      const userId = decodedToken.nameid; 
       console.log(decodedToken);
 
       console.log('User ID:', userId);
